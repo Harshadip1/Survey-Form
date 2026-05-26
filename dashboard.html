@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — SurveyForge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <canvas id="particles-canvas"></canvas>
+  <div class="app-layout app-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="logo"><span class="logo-icon">◈</span> SurveyForge</a>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Main</div>
+        <a href="dashboard.html" class="sidebar-link active"><span class="icon">📊</span> Dashboard</a>
+        <a href="builder.html" class="sidebar-link"><span class="icon">✏️</span> Create Survey</a>
+        <a href="templates.html" class="sidebar-link"><span class="icon">📑</span> Templates</a>
+        <a href="question-bank.html" class="sidebar-link"><span class="icon">🗂️</span> Question Bank</a>
+        <div class="sidebar-section">Data</div>
+        <a href="analytics.html" class="sidebar-link"><span class="icon">📈</span> Analytics</a>
+        <a href="responses.html" class="sidebar-link"><span class="icon">📋</span> Responses</a>
+        <a href="results.html" class="sidebar-link"><span class="icon">🏆</span> Results</a>
+        <a href="export.html" class="sidebar-link"><span class="icon">📥</span> Export</a>
+        <div class="sidebar-section">Customize</div>
+        <a href="themes.html" class="sidebar-link"><span class="icon">🎨</span> Themes</a>
+        <a href="share.html" class="sidebar-link"><span class="icon">🔗</span> Share</a>
+        <div class="sidebar-section">Team</div>
+        <a href="team.html" class="sidebar-link"><span class="icon">👥</span> Collaboration</a>
+        <a href="notifications.html" class="sidebar-link"><span class="icon">🔔</span> Notifications</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="settings.html" class="sidebar-link"><span class="icon">⚙️</span> Settings</a>
+        <a href="profile.html" class="sidebar-link"><span class="icon">👤</span> Profile</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="topbar">
+        <button class="btn btn-ghost sidebar-toggle btn-icon" aria-label="Menu">☰</button>
+        <div class="search-box">
+          <span>🔍</span>
+          <input type="search" placeholder="Search surveys..." data-search="#survey-list">
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="dropdown">
+            <button class="btn btn-ghost btn-icon" data-dropdown-trigger style="position:relative">
+              🔔<span class="notif-badge">3</span>
+            </button>
+            <div class="dropdown-menu">
+              <a href="notifications.html" class="dropdown-item">📋 12 new responses</a>
+              <a href="notifications.html" class="dropdown-item">✅ Survey completed</a>
+              <a href="notifications.html" class="dropdown-item">📥 Export ready</a>
+            </div>
+          </div>
+          <button class="btn btn-ghost btn-icon" data-theme-toggle>🌓</button>
+          <a href="builder.html" class="btn btn-primary">+ New Survey</a>
+        </div>
+      </div>
+
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Dashboard</h1>
+          <p class="page-subtitle">Welcome back! Here's your survey overview.</p>
+        </div>
+        <div class="collab-avatars">
+          <div class="collab-avatar">A</div>
+          <div class="collab-avatar">B</div>
+          <div class="collab-avatar">C</div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="glass-card stat-card reveal">
+          <div class="stat-icon purple">📋</div>
+          <div class="stat-label">Total Surveys</div>
+          <div class="stat-value" id="stat-surveys" data-counter="12">0</div>
+          <span class="stat-change up">↑ 3 this month</span>
+        </div>
+        <div class="glass-card stat-card reveal">
+          <div class="stat-icon cyan">💬</div>
+          <div class="stat-label">Total Responses</div>
+          <div class="stat-value" id="stat-responses" data-counter="1247">0</div>
+          <span class="stat-change up">↑ 18% vs last week</span>
+        </div>
+        <div class="glass-card stat-card reveal">
+          <div class="stat-icon green">✅</div>
+          <div class="stat-label">Active Surveys</div>
+          <div class="stat-value" id="stat-active" data-counter="8">0</div>
+          <span class="stat-change up">↑ 2 new</span>
+        </div>
+        <div class="glass-card stat-card reveal">
+          <div class="stat-icon orange">📈</div>
+          <div class="stat-label">Completion Rate</div>
+          <div class="stat-value" id="stat-completion" data-counter="78">0</div>
+          <span class="stat-change up">↑ 5%</span>
+        </div>
+      </div>
+
+      <div class="dashboard-row">
+        <div class="glass-card chart-card reveal">
+          <h3>Response Overview</h3>
+          <p class="chart-subtitle">Weekly response volume</p>
+          <canvas id="chart-bar" width="500" height="220" style="width:100%"></canvas>
+        </div>
+        <div class="glass-card p-3 reveal">
+          <h3 style="margin-bottom:1rem">Completion Rates</h3>
+          <div class="circular-stats">
+            <div class="circular-stat">
+              <div class="progress-ring">
+                <svg width="80" height="80">
+                  <defs><linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#7C3AED"/><stop offset="100%" stop-color="#06B6D4"/>
+                  </linearGradient></defs>
+                  <circle class="bg" cx="40" cy="40" r="34"/>
+                  <circle class="fill" cx="40" cy="40" r="34" data-value="78" style="stroke:url(#gradient)"/>
+                </svg>
+              </div>
+              <span>Overall</span>
+            </div>
+            <div class="circular-stat">
+              <div class="progress-ring">
+                <svg width="80" height="80">
+                  <circle class="bg" cx="40" cy="40" r="34"/>
+                  <circle class="fill" cx="40" cy="40" r="34" data-value="92" style="stroke:#22C55E"/>
+                </svg>
+              </div>
+              <span>Mobile</span>
+            </div>
+            <div class="circular-stat">
+              <div class="progress-ring">
+                <svg width="80" height="80">
+                  <circle class="bg" cx="40" cy="40" r="34"/>
+                  <circle class="fill" cx="40" cy="40" r="34" data-value="65" style="stroke:#F59E0B"/>
+                </svg>
+              </div>
+              <span>Desktop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-row">
+        <div class="glass-card p-3 reveal" id="survey-list">
+          <div class="flex justify-between items-center mb-2">
+            <h3>Recent Surveys</h3>
+            <a href="builder.html" class="btn btn-ghost btn-sm">View all</a>
+          </div>
+          <div class="survey-list-item" data-searchable>
+            <div class="survey-meta"><h4>Customer Satisfaction Survey</h4><p>Active · 248 responses</p></div>
+            <div class="survey-stats"><span>78% complete</span><a href="analytics.html" class="btn btn-ghost btn-sm">Analytics</a></div>
+          </div>
+          <div class="survey-list-item" data-searchable>
+            <div class="survey-meta"><h4>Employee Engagement</h4><p>Active · 89 responses</p></div>
+            <div class="survey-stats"><span>85% complete</span><a href="analytics.html" class="btn btn-ghost btn-sm">Analytics</a></div>
+          </div>
+          <div class="survey-list-item" data-searchable>
+            <div class="survey-meta"><h4>Product Feedback Form</h4><p>Draft · 0 responses</p></div>
+            <div class="survey-stats"><span>—</span><a href="builder.html" class="btn btn-ghost btn-sm">Edit</a></div>
+          </div>
+        </div>
+        <div>
+          <div class="glass-card p-3 reveal mb-2">
+            <h3 style="margin-bottom:1rem">Quick Actions</h3>
+            <div class="quick-actions">
+              <a href="builder.html" class="quick-action-btn"><span class="icon">✏️</span> New Survey</a>
+              <a href="templates.html" class="quick-action-btn"><span class="icon">📑</span> Templates</a>
+              <a href="responses.html" class="quick-action-btn"><span class="icon">📋</span> Responses</a>
+              <a href="export.html" class="quick-action-btn"><span class="icon">📥</span> Export</a>
+            </div>
+          </div>
+          <div class="glass-card p-3 reveal">
+            <h3 style="margin-bottom:1rem">Recent Activity</h3>
+            <ul class="activity-list">
+              <li class="activity-item"><span class="activity-dot purple"></span><div class="activity-text">12 new responses on Customer Survey<span class="activity-time">2h ago</span></div></li>
+              <li class="activity-item"><span class="activity-dot cyan"></span><div class="activity-text">Survey "Event Registration" published<span class="activity-time">5h ago</span></div></li>
+              <li class="activity-item"><span class="activity-dot green"></span><div class="activity-text">CSV export completed<span class="activity-time">1d ago</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/analytics.js"></script>
+</body>
+</html>

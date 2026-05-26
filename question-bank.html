@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question Bank — SurveyForge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-layout app-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">◈</span> SurveyForge</a></div>
+      <nav class="sidebar-nav">
+        <a href="builder.html" class="sidebar-link"><span class="icon">✏️</span> Builder</a>
+        <a href="question-bank.html" class="sidebar-link active"><span class="icon">🗂️</span> Question Bank</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <div class="page-header">
+        <div><h1 class="page-title">Question Bank</h1><p class="page-subtitle">Reusable questions for faster survey creation</p></div>
+        <button class="btn btn-primary">+ Add Question</button>
+      </div>
+      <div class="search-box mb-3" style="max-width:400px"><span>🔍</span><input type="search" placeholder="Search questions..." data-search="#question-list"></div>
+      <div class="glass-card" id="question-list">
+        <div class="survey-list-item" data-searchable><div class="survey-meta"><h4>How satisfied are you with our service?</h4><p>Rating · Used in 5 surveys</p></div><button class="btn btn-ghost btn-sm">Insert</button></div>
+        <div class="survey-list-item" data-searchable><div class="survey-meta"><h4>What is your email address?</h4><p>Email · Used in 12 surveys</p></div><button class="btn btn-ghost btn-sm">Insert</button></div>
+        <div class="survey-list-item" data-searchable><div class="survey-meta"><h4>How likely are you to recommend us? (0-10)</h4><p>NPS · Used in 8 surveys</p></div><button class="btn btn-ghost btn-sm">Insert</button></div>
+        <div class="survey-list-item" data-searchable><div class="survey-meta"><h4>Please describe your experience</h4><p>Long Text · Used in 3 surveys</p></div><button class="btn btn-ghost btn-sm">Insert</button></div>
+        <div class="survey-list-item" data-searchable><div class="survey-meta"><h4>Which features do you use most?</h4><p>Checkboxes · Used in 4 surveys</p></div><button class="btn btn-ghost btn-sm">Insert</button></div>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

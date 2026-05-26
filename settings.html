@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — SurveyForge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-layout app-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">◈</span> SurveyForge</a></div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link"><span class="icon">📊</span> Dashboard</a>
+        <a href="settings.html" class="sidebar-link active"><span class="icon">⚙️</span> Settings</a>
+        <a href="profile.html" class="sidebar-link"><span class="icon">👤</span> Profile</a>
+      </nav>
+    </aside>
+    <main class="main-content tab-container">
+      <div class="page-header"><h1 class="page-title">Settings</h1></div>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="tab-general">General</button>
+        <button class="tab-btn" data-tab="tab-notifications">Notifications</button>
+        <button class="tab-btn" data-tab="tab-accessibility">Accessibility</button>
+        <button class="tab-btn" data-tab="tab-archive">Archive</button>
+      </div>
+
+      <div id="tab-general" class="tab-panel active">
+        <div class="glass-card p-3" style="max-width:600px">
+          <div class="form-group"><label class="form-label">Default Survey Title</label><input type="text" class="form-input" value="Untitled Survey"></div>
+          <div class="form-group flex items-center justify-between">
+            <div><label class="form-label">Dark Mode</label><p class="form-hint">Toggle application theme</p></div>
+            <div class="toggle active" data-theme-toggle></div>
+          </div>
+          <div class="form-group flex items-center justify-between">
+            <div><label class="form-label">Auto-save Drafts</label><p class="form-hint">Save builder changes automatically</p></div>
+            <div class="toggle active"></div>
+          </div>
+          <div class="form-group flex items-center justify-between">
+            <div><label class="form-label">Offline Mode</label><p class="form-hint">Enable offline survey collection</p></div>
+            <div class="toggle active"></div>
+          </div>
+          <h4 class="mt-3 mb-2">Language</h4>
+          <div class="lang-selector">
+            <button class="lang-btn active">English</button>
+            <button class="lang-btn">Español</button>
+            <button class="lang-btn">Français</button>
+            <button class="lang-btn">Deutsch</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-notifications" class="tab-panel">
+        <div class="glass-card p-3 accessibility-panel" style="max-width:600px">
+          <div class="toggle-row"><span>New response alerts</span><div class="toggle active"></div></div>
+          <div class="toggle-row"><span>Survey completion notifications</span><div class="toggle active"></div></div>
+          <div class="toggle-row"><span>Team activity updates</span><div class="toggle active"></div></div>
+          <div class="toggle-row"><span>Export completed alerts</span><div class="toggle active"></div></div>
+        </div>
+      </div>
+
+      <div id="tab-accessibility" class="tab-panel">
+        <div class="glass-card p-3 accessibility-panel" style="max-width:600px">
+          <div class="toggle-row"><span>High contrast mode</span><div class="toggle" data-a11y="highContrast"></div></div>
+          <div class="toggle-row"><span>Large text</span><div class="toggle" data-a11y="largeText"></div></div>
+          <div class="toggle-row"><span>Reduced motion</span><div class="toggle" data-a11y="reducedMotion"></div></div>
+        </div>
+      </div>
+
+      <div id="tab-archive" class="tab-panel">
+        <div class="glass-card p-3">
+          <div class="archive-item"><div><strong>Old Product Survey</strong><p class="text-sm text-muted">Archived May 2025 · 340 responses</p></div><button class="btn btn-ghost btn-sm">Restore</button></div>
+          <div class="archive-item"><div><strong>2024 Annual Review</strong><p class="text-sm text-muted">Archived Jan 2025 · 890 responses</p></div><button class="btn btn-ghost btn-sm">Restore</button></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/themes.js"></script>
+</body>
+</html>

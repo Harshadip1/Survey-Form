@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile — SurveyForge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-layout app-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">◈</span> SurveyForge</a></div>
+      <nav class="sidebar-nav">
+        <a href="profile.html" class="sidebar-link active"><span class="icon">👤</span> Profile</a>
+        <a href="settings.html" class="sidebar-link"><span class="icon">⚙️</span> Settings</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <div class="glass-card profile-header">
+        <div class="profile-avatar-large">SF</div>
+        <div>
+          <h1 class="page-title">Platform User</h1>
+          <p class="text-muted">Survey Administrator</p>
+          <div class="profile-stats mt-3">
+            <div class="profile-stat"><div class="num" data-counter="12">0</div><div class="lbl">Surveys</div></div>
+            <div class="profile-stat"><div class="num" data-counter="1247">0</div><div class="lbl">Responses</div></div>
+            <div class="profile-stat"><div class="num">98%</div><div class="lbl">Completion</div></div>
+          </div>
+        </div>
+        <button class="btn btn-outline">Edit Profile</button>
+      </div>
+      <div class="grid grid-2 gap-3">
+        <div class="glass-card p-3">
+          <h3 class="mb-2">Account Details</h3>
+          <div class="form-group"><label class="form-label">Display Name</label><input type="text" class="form-input" value="Platform User"></div>
+          <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="user@example.com"></div>
+          <div class="form-group"><label class="form-label">Role</label><input type="text" class="form-input" value="Administrator" disabled></div>
+          <button class="btn btn-primary">Save Changes</button>
+        </div>
+        <div class="glass-card p-3">
+          <h3 class="mb-2">Security</h3>
+          <div class="form-group"><label class="form-label">New Password</label><input type="password" class="form-input" id="new-password" placeholder="••••••••"><div class="password-strength"><div class="password-strength-bar"></div></div></div>
+          <div class="form-group"><label class="form-label">Confirm Password</label><input type="password" class="form-input" placeholder="••••••••"></div>
+          <button class="btn btn-outline">Update Password</button>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/validation.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',()=>{const p=document.getElementById('new-password');if(p)FormValidation.initPasswordStrength(p);});</script>
+</body>
+</html>

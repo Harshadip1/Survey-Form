@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Templates Gallery — SurveyForge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-layout app-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">◈</span> SurveyForge</a></div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link"><span class="icon">📊</span> Dashboard</a>
+        <a href="templates.html" class="sidebar-link active"><span class="icon">📑</span> Templates</a>
+        <a href="builder.html" class="sidebar-link"><span class="icon">✏️</span> Builder</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <div class="page-header">
+        <div><h1 class="page-title">Templates Gallery</h1><p class="page-subtitle">Start with a professionally designed template</p></div>
+        <a href="builder.html" class="btn btn-primary">Blank Survey</a>
+      </div>
+      <div class="search-box mb-3" style="max-width:400px">
+        <span>🔍</span>
+        <input type="search" placeholder="Search templates..." data-search="#template-grid">
+      </div>
+      <div class="template-filters">
+        <button class="filter-chip active" data-cat="all">All</button>
+        <button class="filter-chip" data-cat="feedback">Feedback</button>
+        <button class="filter-chip" data-cat="customer">Customer</button>
+        <button class="filter-chip" data-cat="event">Events</button>
+        <button class="filter-chip" data-cat="hr">HR</button>
+        <button class="filter-chip" data-cat="quiz">Quiz</button>
+        <button class="filter-chip" data-cat="education">Education</button>
+      </div>
+      <div class="template-grid" id="template-grid">
+        <a href="builder.html" class="glass-card template-card" data-searchable data-cat="feedback"><div class="template-card-preview">💬</div><div class="template-card-body"><h3>Feedback Form</h3><p>General feedback collection</p><span class="badge mt-1">Popular</span></div></a>
+        <a href="builder.html" class="glass-card template-card" data-searchable data-cat="customer"><div class="template-card-preview">⭐</div><div class="template-card-body"><h3>Customer Survey</h3><p>NPS & satisfaction metrics</p></div></a>
+        <a href="builder.html" class="glass-card template-card" data-searchable data-cat="event"><div class="template-card-preview">🎫</div><div class="template-card-body"><h3>Event Registration</h3><p>RSVP and attendee details</p></div></a>
+        <a href="builder.html" class="glass-card template-card" data-searchable data-cat="hr"><div class="template-card-preview">💼</div><div class="template-card-body"><h3>Job Application</h3><p>Applicant screening form</p></div></a>
+        <a href="builder.html" class="glass-card template-card" data-searchable data-cat="quiz"><div class="template-card-preview">❓</div><div class="template-card-body"><h3>Quiz Form</h3><p>Knowledge assessment</p></div></a>
+        <a href="builder.html" class="glass-card template-card" data-searchable data-cat="customer"><div class="template-card-preview">📦</div><div class="template-card-body"><h3>Product Review</h3><p>Product feedback & ratings</p></div></a>
+        <a href="builder.html" class="glass-card template-card" data-searchable data-cat="education"><div class="template-card-preview">🎓</div><div class="template-card-body"><h3>Education Survey</h3><p>Course evaluation</p></div></a>
+        <a href="builder.html" class="glass-card template-card" data-searchable data-cat="feedback"><div class="template-card-preview">🏥</div><div class="template-card-body"><h3>Health Check-in</h3><p>Wellness questionnaire</p></div></a>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+  <script>
+    document.querySelectorAll('.template-filters .filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.template-filters .filter-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const cat = chip.dataset.cat;
+        document.querySelectorAll('#template-grid .template-card').forEach(card => {
+          card.style.display = cat === 'all' || card.dataset.cat === cat ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

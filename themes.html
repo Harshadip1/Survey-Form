@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Themes — SurveyForge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-layout app-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">◈</span> SurveyForge</a></div>
+      <nav class="sidebar-nav">
+        <a href="builder.html" class="sidebar-link"><span class="icon">✏️</span> Builder</a>
+        <a href="themes.html" class="sidebar-link active"><span class="icon">🎨</span> Themes</a>
+        <a href="settings.html" class="sidebar-link"><span class="icon">⚙️</span> Settings</a>
+      </nav>
+    </aside>
+    <main class="main-content tab-container">
+      <div class="page-header"><div><h1 class="page-title">Survey Themes</h1><p class="page-subtitle">Customize the look and feel of your surveys</p></div></div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="tab-themes">Themes</button>
+        <button class="tab-btn" data-tab="tab-colors">Colors</button>
+        <button class="tab-btn" data-tab="tab-fonts">Typography</button>
+        <button class="tab-btn" data-tab="tab-branding">Branding</button>
+      </div>
+
+      <div id="tab-themes" class="tab-panel active">
+        <div class="theme-grid">
+          <div class="theme-card selected" data-theme="minimal"><div class="theme-preview minimal"></div><strong>Minimal</strong></div>
+          <div class="theme-card" data-theme="neon"><div class="theme-preview neon"></div><strong>Neon</strong></div>
+          <div class="theme-card" data-theme="glass"><div class="theme-preview glass"></div><strong>Glassmorphism</strong></div>
+          <div class="theme-card" data-theme="professional"><div class="theme-preview professional"></div><strong>Professional</strong></div>
+          <div class="theme-card" data-theme="gradient"><div class="theme-preview gradient"></div><strong>Modern Gradient</strong></div>
+        </div>
+        <h3 class="mt-4 mb-2">Background Style</h3>
+        <div class="bg-style-grid">
+          <div class="bg-style-item solid selected" data-bg="solid"></div>
+          <div class="bg-style-item gradient" data-bg="gradient"></div>
+          <div class="bg-style-item pattern" data-bg="pattern"></div>
+          <div class="bg-style-item particles" data-bg="particles"></div>
+        </div>
+      </div>
+
+      <div id="tab-colors" class="tab-panel">
+        <div class="glass-card p-3">
+          <div class="color-picker-row"><label class="form-label">Primary Color</label><input type="color" id="color-primary" value="#7C3AED"></div>
+          <div class="color-picker-row"><label class="form-label">Accent Color</label><input type="color" id="color-accent" value="#06B6D4"></div>
+        </div>
+      </div>
+
+      <div id="tab-fonts" class="tab-panel">
+        <div class="font-selector">
+          <div class="font-option sample-inter selected" data-font="inter">Inter</div>
+          <div class="font-option sample-space" data-font="space">Space Grotesk</div>
+          <div class="font-option sample-serif" data-font="serif">Georgia Serif</div>
+          <div class="font-option sample-mono" data-font="mono">Monospace</div>
+        </div>
+        <h3 class="mt-3 mb-2">Layout</h3>
+        <div class="layout-options">
+          <div class="layout-option selected" data-layout="centered">Centered</div>
+          <div class="layout-option" data-layout="wide">Wide</div>
+          <div class="layout-option" data-layout="compact">Compact</div>
+        </div>
+      </div>
+
+      <div id="tab-branding" class="tab-panel">
+        <div class="custom-branding-panel glass-card">
+          <div class="brand-logo-upload">+</div>
+          <p>Upload your logo</p>
+          <div class="form-group mt-3" style="max-width:300px;margin:1rem auto 0">
+            <label class="form-label">Brand Name</label>
+            <input type="text" class="form-input" placeholder="Your organization">
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/themes.js"></script>
+</body>
+</html>

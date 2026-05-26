@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Builder — SurveyForge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/builder.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-layout app-wrapper" style="padding-top:0">
+    <aside class="sidebar">
+      <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">◈</span> SurveyForge</a></div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link"><span class="icon">📊</span> Dashboard</a>
+        <a href="builder.html" class="sidebar-link active"><span class="icon">✏️</span> Builder</a>
+        <a href="preview.html" class="sidebar-link"><span class="icon">👁</span> Preview</a>
+        <a href="survey.html" class="sidebar-link"><span class="icon">📝</span> Live Survey</a>
+        <a href="themes.html" class="sidebar-link"><span class="icon">🎨</span> Themes</a>
+        <a href="share.html" class="sidebar-link"><span class="icon">🔗</span> Share</a>
+      </nav>
+    </aside>
+
+    <main class="main-content" style="margin-left:var(--sidebar-width);padding:0">
+      <div class="builder-layout">
+        <aside class="builder-sidebar" id="builder-sidebar-left">
+          <h3>Question Types</h3>
+          <div class="question-types">
+            <button class="question-type-btn" draggable="true" data-type="text" data-question-type="text"><span class="icon">✏️</span>Short Text</button>
+            <button class="question-type-btn" draggable="true" data-type="textarea" data-question-type="textarea"><span class="icon">📝</span>Long Text</button>
+            <button class="question-type-btn" draggable="true" data-type="radio" data-question-type="radio"><span class="icon">◉</span>Multiple Choice</button>
+            <button class="question-type-btn" draggable="true" data-type="checkbox" data-question-type="checkbox"><span class="icon">☑</span>Checkboxes</button>
+            <button class="question-type-btn" draggable="true" data-type="dropdown" data-question-type="dropdown"><span class="icon">▼</span>Dropdown</button>
+            <button class="question-type-btn" draggable="true" data-type="rating" data-question-type="rating"><span class="icon">★</span>Rating</button>
+            <button class="question-type-btn" draggable="true" data-type="date" data-question-type="date"><span class="icon">📅</span>Date</button>
+            <button class="question-type-btn" draggable="true" data-type="file" data-question-type="file"><span class="icon">📎</span>File Upload</button>
+            <button class="question-type-btn" draggable="true" data-type="email" data-question-type="email"><span class="icon">✉</span>Email</button>
+            <button class="question-type-btn" draggable="true" data-type="number" data-question-type="number"><span class="icon">#</span>Number</button>
+          </div>
+          <div class="ai-suggestion-panel mt-3">
+            <h4>🤖 AI Suggestions</h4>
+            <div class="ai-suggestions">
+              <span class="ai-chip">Satisfaction rating</span>
+              <span class="ai-chip">NPS question</span>
+              <span class="ai-chip">Open feedback</span>
+            </div>
+            <button class="btn btn-ghost btn-sm mt-1 w-full" id="btn-ai-suggest">Generate more</button>
+          </div>
+          <div class="mt-3">
+            <button class="voice-input-btn" title="Voice input" aria-label="Voice input">🎤</button>
+            <span class="text-xs text-muted" style="margin-left:0.5rem">Voice input</span>
+          </div>
+        </aside>
+
+        <div class="builder-canvas">
+          <div class="builder-toolbar">
+            <div class="flex items-center gap-2">
+              <span class="autosave-indicator">✓ Saved</span>
+              <span class="badge badge-accent">Multi-step</span>
+            </div>
+            <div class="builder-toolbar-actions">
+              <button class="btn btn-ghost btn-sm" id="btn-add-page">+ Add Page</button>
+              <button class="btn btn-ghost btn-sm" id="btn-preview">Preview</button>
+              <button class="btn btn-primary btn-sm" id="btn-save-survey">Save Survey</button>
+            </div>
+          </div>
+          <div class="survey-canvas">
+            <div id="page-tabs" class="page-tabs-builder"></div>
+            <input type="text" id="survey-title" class="survey-title-input" placeholder="Survey Title" value="Untitled Survey">
+            <textarea id="survey-description" class="survey-desc-input" placeholder="Add a description..." rows="2"></textarea>
+            <div id="questions-container"></div>
+          </div>
+        </div>
+
+        <aside class="builder-properties" id="builder-properties-right">
+          <h3>Properties</h3>
+          <div id="properties-panel"><p class="text-muted text-sm">Select a question to edit</p></div>
+          <div class="mt-3">
+            <h4 class="form-label">Schedule</h4>
+            <input type="datetime-local" class="form-input">
+          </div>
+          <div class="mt-2">
+            <h4 class="form-label">Audience</h4>
+            <div class="audience-tags">
+              <span class="audience-tag">All users</span>
+              <span class="audience-tag">Premium</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="floating-toolbar">
+        <button class="btn btn-ghost btn-sm" onclick="document.getElementById('builder-sidebar-left').classList.toggle('open')">+ Add</button>
+        <button class="btn btn-ghost btn-sm">↩ Undo</button>
+        <button class="btn btn-ghost btn-sm">↪ Redo</button>
+        <a href="preview.html" class="btn btn-accent btn-sm">Preview</a>
+        <a href="survey.html?id=demo1" class="btn btn-primary btn-sm">Publish</a>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/dragdrop.js"></script>
+  <script src="js/builder.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => SurveyBuilder.init());</script>
+</body>
+</html>

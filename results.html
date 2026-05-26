@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Results — SurveyForge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-layout app-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">◈</span> SurveyForge</a></div>
+      <nav class="sidebar-nav">
+        <a href="results.html" class="sidebar-link active"><span class="icon">🏆</span> Results</a>
+        <a href="analytics.html" class="sidebar-link"><span class="icon">📈</span> Analytics</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <div class="page-header">
+        <div><h1 class="page-title">Survey Results</h1><p class="page-subtitle">Customer Satisfaction Survey — Final Results</p></div>
+        <a href="export.html" class="btn btn-primary">Export Results</a>
+      </div>
+      <div class="dashboard-grid">
+        <div class="glass-card stat-card"><div class="stat-label">Total Responses</div><div class="stat-value" data-counter="248">0</div></div>
+        <div class="glass-card stat-card"><div class="stat-label">Avg. Rating</div><div class="stat-value">4.6</div></div>
+        <div class="glass-card stat-card"><div class="stat-label">NPS Score</div><div class="stat-value">+42</div></div>
+        <div class="glass-card stat-card"><div class="stat-label">Completion</div><div class="stat-value" data-counter="92">0</div><span class="text-sm">%</span></div>
+      </div>
+      <div class="dashboard-row">
+        <div class="glass-card chart-card"><h3>Overall Satisfaction</h3><canvas id="chart-pie" width="200" height="200"></canvas><div id="chart-pie-legend"></div></div>
+        <div class="glass-card chart-card"><h3>Response Timeline</h3><canvas id="chart-line" width="500" height="200" style="width:100%"></canvas></div>
+      </div>
+      <div class="glass-card p-3 mt-3">
+        <h3 class="mb-2">Top Insights</h3>
+        <ul style="list-style:none">
+          <li class="activity-item"><span class="activity-dot green"></span><span>92% of respondents rated service as Good or Excellent</span></li>
+          <li class="activity-item"><span class="activity-dot purple"></span><span>Response rate increased 18% compared to last quarter</span></li>
+          <li class="activity-item"><span class="activity-dot cyan"></span><span>Mobile completion rate is 15% higher than desktop</span></li>
+        </ul>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics — SurveyForge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <canvas id="particles-canvas"></canvas>
+  <div class="app-layout app-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">◈</span> SurveyForge</a></div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link"><span class="icon">📊</span> Dashboard</a>
+        <a href="analytics.html" class="sidebar-link active"><span class="icon">📈</span> Analytics</a>
+        <a href="responses.html" class="sidebar-link"><span class="icon">📋</span> Responses</a>
+        <a href="results.html" class="sidebar-link"><span class="icon">🏆</span> Results</a>
+        <a href="export.html" class="sidebar-link"><span class="icon">📥</span> Export</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <div class="page-header">
+        <div><h1 class="page-title">Analytics Dashboard</h1><p class="page-subtitle">Deep insights into survey performance</p></div>
+        <select class="form-select" style="width:auto"><option>Customer Satisfaction Survey</option><option>Employee Engagement</option></select>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="glass-card stat-card"><div class="stat-icon purple">📊</div><div class="stat-label">Total Responses</div><div class="stat-value" data-counter="1247">0</div></div>
+        <div class="glass-card stat-card"><div class="stat-icon cyan">✅</div><div class="stat-label">Completion Rate</div><div class="stat-value" data-counter="78">0</div><span class="text-sm">%</span></div>
+        <div class="glass-card stat-card"><div class="stat-icon green">⏱</div><div class="stat-label">Avg. Time</div><div class="stat-value">4:32</div></div>
+        <div class="glass-card stat-card"><div class="stat-icon orange">📱</div><div class="stat-label">Mobile Users</div><div class="stat-value" data-counter="62">0</div><span class="text-sm">%</span></div>
+      </div>
+
+      <div class="dashboard-row">
+        <div class="glass-card chart-card">
+          <h3>Response Trends</h3>
+          <p class="chart-subtitle">Daily responses over time</p>
+          <canvas id="chart-line" width="600" height="240" style="width:100%"></canvas>
+        </div>
+        <div class="glass-card chart-card">
+          <h3>Satisfaction Distribution</h3>
+          <div class="flex items-center gap-3">
+            <canvas id="chart-pie" width="180" height="180"></canvas>
+            <div id="chart-pie-legend" style="flex:1"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-row">
+        <div class="glass-card chart-card">
+          <h3>Weekly Responses</h3>
+          <canvas id="chart-bar" width="500" height="240" style="width:100%"></canvas>
+        </div>
+        <div class="glass-card p-3">
+          <h3>Question Performance</h3>
+          <div id="chart-questions" class="mt-2"></div>
+        </div>
+      </div>
+
+      <div class="dashboard-row">
+        <div class="glass-card p-3">
+          <h3>Demographics</h3>
+          <div class="demographic-grid mt-2">
+            <div class="demographic-item"><div class="value">42%</div><div class="label">18-24</div></div>
+            <div class="demographic-item"><div class="value">35%</div><div class="label">25-34</div></div>
+            <div class="demographic-item"><div class="value">23%</div><div class="label">35+</div></div>
+          </div>
+        </div>
+        <div class="glass-card p-3">
+          <h3>Engagement Heatmap</h3>
+          <div class="heatmap-preview" id="heatmap"></div>
+          <script>document.getElementById('heatmap').innerHTML=Array.from({length:28},()=>`<div class="heatmap-cell level-${Math.ceil(Math.random()*5)}"></div>`).join('')</script>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Collaboration — SurveyForge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-layout app-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">◈</span> SurveyForge</a></div>
+      <nav class="sidebar-nav">
+        <a href="team.html" class="sidebar-link active"><span class="icon">👥</span> Team</a>
+        <a href="dashboard.html" class="sidebar-link"><span class="icon">📊</span> Dashboard</a>
+      </nav>
+    </aside>
+    <main class="main-content tab-container">
+      <div class="page-header">
+        <div><h1 class="page-title">Team Collaboration</h1><p class="page-subtitle">Manage team members and shared surveys</p></div>
+        <button class="btn btn-primary">+ Invite Member</button>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="tab-members">Members</button>
+        <button class="tab-btn" data-tab="tab-activity">Activity</button>
+        <button class="tab-btn" data-tab="tab-comments">Comments</button>
+      </div>
+      <div id="tab-members" class="tab-panel active">
+        <div class="team-grid">
+          <div class="glass-card team-member-card"><div class="team-avatar">A</div><h3>Admin User</h3><p class="text-muted text-sm">admin@platform.local</p><span class="badge permission-badge">Owner</span></div>
+          <div class="glass-card team-member-card"><div class="team-avatar" style="background:linear-gradient(135deg,#06B6D4,#22C55E)">E</div><h3>Editor One</h3><p class="text-muted text-sm">editor@platform.local</p><span class="badge badge-accent permission-badge">Editor</span></div>
+          <div class="glass-card team-member-card"><div class="team-avatar" style="background:linear-gradient(135deg,#F59E0B,#EF4444)">V</div><h3>Viewer Two</h3><p class="text-muted text-sm">viewer@platform.local</p><span class="badge badge-warning permission-badge">Viewer</span></div>
+        </div>
+        <div class="glass-card p-3 mt-3">
+          <h3 class="mb-2">Permission Levels</h3>
+          <div class="data-table-wrapper"><table class="data-table"><thead><tr><th>Role</th><th>Create</th><th>Edit</th><th>View</th><th>Export</th></tr></thead><tbody>
+            <tr><td>Owner</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+            <tr><td>Editor</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+            <tr><td>Viewer</td><td>—</td><td>—</td><td>✓</td><td>—</td></tr>
+          </tbody></table></div>
+        </div>
+      </div>
+      <div id="tab-activity" class="tab-panel">
+        <div class="glass-card p-3 activity-feed">
+          <ul class="activity-list">
+            <li class="activity-item"><span class="activity-dot purple"></span><div class="activity-text"><strong>Editor One</strong> updated Customer Survey<span class="activity-time">1h ago</span></div></li>
+            <li class="activity-item"><span class="activity-dot cyan"></span><div class="activity-text"><strong>Admin User</strong> shared survey with team<span class="activity-time">3h ago</span></div></li>
+            <li class="activity-item"><span class="activity-dot green"></span><div class="activity-text"><strong>Viewer Two</strong> exported responses<span class="activity-time">1d ago</span></div></li>
+          </ul>
+        </div>
+      </div>
+      <div id="tab-comments" class="tab-panel">
+        <div class="glass-card p-3 comment-section">
+          <div class="comment-item"><div class="comment-avatar">A</div><div><strong>Admin User</strong><p class="text-sm">Let's add an NPS question to the customer survey.</p><span class="text-xs text-muted">2h ago</span></div></div>
+          <div class="comment-item"><div class="comment-avatar">E</div><div><strong>Editor One</strong><p class="text-sm">Done! Added to page 2.</p><span class="text-xs text-muted">1h ago</span></div></div>
+          <div class="form-group mt-2"><textarea class="form-textarea" placeholder="Add a comment..." rows="2"></textarea><button class="btn btn-primary btn-sm mt-1">Post Comment</button></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

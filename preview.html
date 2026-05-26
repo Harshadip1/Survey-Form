@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Preview — SurveyForge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/builder.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="builder.html" class="logo"><span class="logo-icon">◈</span> Preview Mode</a>
+      <div class="nav-actions">
+        <span class="badge badge-accent">Preview</span>
+        <a href="builder.html" class="btn btn-outline">← Back to Builder</a>
+        <a href="survey.html" class="btn btn-primary">Open Live Survey</a>
+      </div>
+    </div>
+  </header>
+  <div class="survey-live-page" style="padding-top:calc(var(--header-height) + 2rem)">
+    <div class="survey-container survey-theme-gradient preview-mode" id="preview-container">
+      <h1 id="preview-title">Survey Preview</h1>
+      <p id="preview-desc" class="text-muted mb-3"></p>
+      <div id="preview-questions"></div>
+      <div class="survey-step-nav">
+        <button class="btn btn-outline" disabled>← Previous</button>
+        <button class="btn btn-primary">Next →</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const data = JSON.parse(localStorage.getItem('sf_preview_survey') || '{}');
+      document.getElementById('preview-title').textContent = data.title || 'Untitled Survey';
+      document.getElementById('preview-desc').textContent = data.description || '';
+      const container = document.getElementById('preview-questions');
+      const questions = data.pages?.[0]?.questions || [];
+      if (!questions.length) {
+        container.innerHTML = '<p class="text-muted text-center">No questions yet. Add questions in the builder.</p>';
+        return;
+      }
+      container.innerHTML = questions.map(q => `
+        <div class="form-group question-block">
+          <label class="form-label">${q.label}${q.required ? ' *' : ''}</label>
+          <input type="text" class="form-input" placeholder="Preview answer" disabled>
+        </div>
+      `).join('');
+    });
+  </script>
+</body>
+</html>

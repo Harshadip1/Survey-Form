@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Survey — SurveyForge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-layout app-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">◈</span> SurveyForge</a></div>
+      <nav class="sidebar-nav">
+        <a href="builder.html" class="sidebar-link"><span class="icon">✏️</span> Builder</a>
+        <a href="share.html" class="sidebar-link active"><span class="icon">🔗</span> Share</a>
+        <a href="survey.html" class="sidebar-link"><span class="icon">📝</span> Live Survey</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <div class="page-header"><div><h1 class="page-title">Share Survey</h1><p class="page-subtitle">Distribute your survey across channels</p></div></div>
+      <div class="share-options">
+        <div class="glass-card share-card">
+          <h3>🔗 Share Link</h3>
+          <p class="text-muted text-sm">Copy and share your survey URL</p>
+          <div class="copy-link-box">
+            <input type="text" id="share-url" readonly value="">
+            <button class="btn btn-primary" data-copy="#share-url">Copy</button>
+          </div>
+          <div class="social-share">
+            <button class="social-btn" data-platform="Twitter">𝕏</button>
+            <button class="social-btn" data-platform="LinkedIn">in</button>
+            <button class="social-btn" data-platform="Facebook">f</button>
+            <button class="social-btn" data-platform="Email">✉</button>
+          </div>
+        </div>
+        <div class="glass-card share-card text-center">
+          <h3>QR Code</h3>
+          <p class="text-muted text-sm">Scan to open survey on mobile</p>
+          <div class="qr-placeholder" id="qr-code"></div>
+          <button class="btn btn-outline btn-sm">Download QR</button>
+        </div>
+        <div class="glass-card share-card">
+          <h3>📋 Embed Code</h3>
+          <p class="text-muted text-sm">Embed survey on your website</p>
+          <pre class="embed-code" id="embed-code"></pre>
+          <button class="btn btn-ghost btn-sm" data-copy="#embed-code">Copy Code</button>
+        </div>
+        <div class="glass-card share-card">
+          <h3>📧 Email Invite</h3>
+          <div class="form-group mt-2"><label class="form-label">Recipients</label><input type="email" class="form-input" placeholder="email@example.com"></div>
+          <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" rows="3" placeholder="Please take our survey..."></textarea></div>
+          <button class="btn btn-primary">Send Invites</button>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/export.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',()=>{const u=document.getElementById('share-url');if(u)u.value=ExportManager.getShareUrl('demo1');});</script>
+</body>
+</html>

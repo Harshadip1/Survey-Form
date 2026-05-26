@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SurveyForge — Premium Survey Form Builder & Analytics Platform">
+  <title>SurveyForge — Survey Builder & Analytics</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <canvas id="particles-canvas"></canvas>
+  <div class="app-wrapper">
+    <header class="site-header">
+      <div class="container">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">◈</span>
+          SurveyForge
+        </a>
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#templates">Templates</a></li>
+          <li><a href="#analytics-preview">Analytics</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn btn-ghost" data-theme-toggle aria-label="Toggle theme">🌓</button>
+          <a href="dashboard.html" class="btn btn-ghost">Dashboard</a>
+          <a href="builder.html" class="btn btn-primary">Create Survey</a>
+          <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero container">
+      <div class="hero-content reveal">
+        <span class="hero-badge">✨ Next-Gen Survey Platform</span>
+        <h1>Build Beautiful Surveys <span class="text-gradient">In Minutes</span></h1>
+        <p>Create, share, and analyze surveys with our premium drag-and-drop builder. Professional forms with real-time analytics.</p>
+        <div class="hero-actions">
+          <a href="builder.html" class="btn btn-primary btn-lg">Start Building Free</a>
+          <a href="templates.html" class="btn btn-outline btn-lg">Browse Templates</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="glass-card floating-card" style="min-width:200px">
+          <div class="stat-icon purple">📊</div>
+          <div class="stat-value" style="font-size:1.5rem">98%</div>
+          <div class="stat-label">Completion Rate</div>
+        </div>
+        <div class="glass-card floating-card" style="min-width:180px">
+          <div class="stat-icon cyan">📋</div>
+          <div class="stat-value" style="font-size:1.5rem">2.4k</div>
+          <div class="stat-label">Responses Today</div>
+        </div>
+        <div class="glass-card floating-card" style="min-width:160px">
+          <div class="badge badge-success">Live</div>
+          <p class="text-sm mt-1">12 active surveys</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="templates">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Ready-Made <span class="text-gradient">Templates</span></h2>
+          <p class="text-muted">Start with professionally designed survey templates for every use case.</p>
+        </div>
+        <div class="template-grid">
+          <a href="builder.html" class="glass-card template-card reveal" data-searchable>
+            <div class="template-card-preview">💬</div>
+            <div class="template-card-body"><h3>Feedback Form</h3><p>Collect customer feedback</p></div>
+          </a>
+          <a href="builder.html" class="glass-card template-card reveal" data-searchable>
+            <div class="template-card-preview">⭐</div>
+            <div class="template-card-body"><h3>Customer Survey</h3><p>Satisfaction & NPS</p></div>
+          </a>
+          <a href="builder.html" class="glass-card template-card reveal" data-searchable>
+            <div class="template-card-preview">🎫</div>
+            <div class="template-card-body"><h3>Event Registration</h3><p>RSVP & attendee info</p></div>
+          </a>
+          <a href="builder.html" class="glass-card template-card reveal" data-searchable>
+            <div class="template-card-preview">💼</div>
+            <div class="template-card-body"><h3>Job Application</h3><p>Applicant screening</p></div>
+          </a>
+        </div>
+        <div class="text-center mt-4">
+          <a href="templates.html" class="btn btn-outline">View All Templates →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="analytics-preview" style="background:rgba(30,41,59,0.3)">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Powerful <span class="text-gradient">Analytics</span></h2>
+          <p class="text-muted">Real-time insights with beautiful charts and reports.</p>
+        </div>
+        <div class="dashboard-row reveal">
+          <div class="glass-card chart-card">
+            <h3>Response Trends</h3>
+            <p class="chart-subtitle">Last 30 days</p>
+            <canvas id="chart-line" width="500" height="200" style="width:100%;max-height:200px"></canvas>
+          </div>
+          <div class="glass-card chart-card">
+            <h3>Satisfaction Breakdown</h3>
+            <div class="flex items-center gap-3">
+              <canvas id="chart-pie" width="160" height="160"></canvas>
+              <div id="chart-pie-legend" style="flex:1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Everything You Need</h2>
+          <p class="text-muted">A complete survey platform built for modern teams.</p>
+        </div>
+        <div class="grid grid-3 gap-3">
+          <div class="glass-card feature-card reveal">
+            <div class="feature-icon">🎯</div>
+            <h3>Drag & Drop Builder</h3>
+            <p class="text-muted text-sm">Create surveys visually with 11+ question types</p>
+          </div>
+          <div class="glass-card feature-card reveal">
+            <div class="feature-icon">📊</div>
+            <h3>Real-Time Analytics</h3>
+            <p class="text-muted text-sm">Charts, heatmaps, and completion tracking</p>
+          </div>
+          <div class="glass-card feature-card reveal">
+            <div class="feature-icon">🎨</div>
+            <h3>Theme Customization</h3>
+            <p class="text-muted text-sm">5 premium themes with full color control</p>
+          </div>
+          <div class="glass-card feature-card reveal">
+            <div class="feature-icon">✅</div>
+            <h3>Smart Validation</h3>
+            <p class="text-muted text-sm">Real-time field validation with error summaries</p>
+          </div>
+          <div class="glass-card feature-card reveal">
+            <div class="feature-icon">📤</div>
+            <h3>Export & Share</h3>
+            <p class="text-muted text-sm">PDF, CSV, QR codes, and embed options</p>
+          </div>
+          <div class="glass-card feature-card reveal">
+            <div class="feature-icon">👥</div>
+            <h3>Team Collaboration</h3>
+            <p class="text-muted text-sm">Permissions, comments, and shared workspaces</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container text-center reveal">
+        <h2 style="font-size:2.5rem;margin-bottom:1rem">Ready to Create Your First Survey?</h2>
+        <p class="text-muted mb-3" style="max-width:500px;margin:0 auto 2rem">Join thousands of teams building better surveys with SurveyForge.</p>
+        <a href="builder.html" class="btn btn-primary btn-lg">Get Started — It's Free</a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a href="index.html" class="logo mb-2" style="display:inline-flex;margin-bottom:1rem">
+              <span class="logo-icon">◈</span> SurveyForge
+            </a>
+            <p class="text-muted text-sm">Premium survey builder and analytics platform for modern teams.</p>
+          </div>
+          <div>
+            <h4 style="margin-bottom:1rem;font-size:0.875rem">Product</h4>
+            <ul style="list-style:none">
+              <li><a href="builder.html" class="text-muted text-sm" style="display:block;padding:0.25rem 0">Builder</a></li>
+              <li><a href="analytics.html" class="text-muted text-sm" style="display:block;padding:0.25rem 0">Analytics</a></li>
+              <li><a href="templates.html" class="text-muted text-sm" style="display:block;padding:0.25rem 0">Templates</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="margin-bottom:1rem;font-size:0.875rem">Resources</h4>
+            <ul style="list-style:none">
+              <li><a href="about.html" class="text-muted text-sm" style="display:block;padding:0.25rem 0">About</a></li>
+              <li><a href="contact.html" class="text-muted text-sm" style="display:block;padding:0.25rem 0">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="margin-bottom:1rem;font-size:0.875rem">Platform</h4>
+            <ul style="list-style:none">
+              <li><a href="dashboard.html" class="text-muted text-sm" style="display:block;padding:0.25rem 0">Dashboard</a></li>
+              <li><a href="settings.html" class="text-muted text-sm" style="display:block;padding:0.25rem 0">Settings</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2025 SurveyForge Platform. All rights reserved.</span>
+          <span>Built with HTML5, CSS3 & Vanilla JavaScript</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/analytics.js"></script>
+</body>
+</html>

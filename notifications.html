@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications — SurveyForge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-layout app-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">◈</span> SurveyForge</a></div>
+      <nav class="sidebar-nav">
+        <a href="notifications.html" class="sidebar-link active"><span class="icon">🔔</span> Notifications</a>
+        <a href="dashboard.html" class="sidebar-link"><span class="icon">📊</span> Dashboard</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <div class="page-header">
+        <div><h1 class="page-title">Notifications</h1><p class="page-subtitle">Stay updated on survey activity</p></div>
+        <button class="btn btn-ghost" id="mark-all-read">Mark all read</button>
+      </div>
+      <ul class="notif-list glass-card" id="notif-list"></ul>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const list = document.getElementById('notif-list');
+      const icons = { survey: '📋', success: '✅', team: '👥', export: '📥', info: 'ℹ' };
+      const colors = { survey: 'purple', success: 'green', team: 'cyan', export: 'orange' };
+      SurveyApp.getNotifications().forEach(n => {
+        const li = document.createElement('li');
+        li.className = `notif-item ${n.read ? '' : 'unread'}`;
+        li.innerHTML = `
+          <div class="notif-icon-wrap" style="background:rgba(124,58,237,0.15)">${icons[n.type] || icons.info}</div>
+          <div style="flex:1"><p>${n.message}</p><span class="text-xs text-muted">${SurveyApp.formatRelativeTime(n.time)}</span></div>
+          ${!n.read ? '<span class="badge">New</span>' : ''}
+        `;
+        li.addEventListener('click', () => { n.read = true; SurveyApp.set(SurveyApp.STORAGE_KEYS.notifications, SurveyApp.getNotifications()); li.classList.remove('unread'); });
+        list.appendChild(li);
+      });
+      document.getElementById('mark-all-read')?.addEventListener('click', () => {
+        SurveyApp.set(SurveyApp.STORAGE_KEYS.notifications, SurveyApp.getNotifications().map(n => ({ ...n, read: true })));
+        document.querySelectorAll('.notif-item').forEach(i => i.classList.remove('unread'));
+        SurveyApp.showToast('All notifications marked as read', 'success');
+      });
+    });
+  </script>
+</body>
+</html>
